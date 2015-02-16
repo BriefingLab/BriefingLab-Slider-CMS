@@ -102,6 +102,7 @@ class Bl_Slider_Cms_Manager {
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-bl-slider-cms-manager-admin.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-bl-slider-cms-manager-options.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-bl-slider-cms-manager-public.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-bl-cache-html-manager.php';
 
         require_once plugin_dir_path( __FILE__ ) . 'class-bl-slider-cms-loader.php';
         $this->loader = new Bl_Slider_Cms_Loader();
@@ -118,7 +119,13 @@ class Bl_Slider_Cms_Manager {
 
         $data_model = Bl_Slider_Cms_Model::getInstance();
 
-        $admin = new Bl_Slider_Cms_Manager_Admin( $this->get_version(), $this->options, $data_model );
+        $upload_dir = wp_upload_dir();
+
+        $upload_dir = $upload_dir['basedir'] . "/bl-slider/";
+
+        $cache_manager = new Bl_Cache_Html_Manager( $upload_dir );
+
+        $admin = new Bl_Slider_Cms_Manager_Admin( $this->get_version(), $this->options, $data_model, $cache_manager );
 
         $this->loader->add_action( 'init', $admin, 'load_textdomain' );
         $this->loader->add_action( 'init', $admin, 'register_bl_slider_post_type' );
@@ -141,7 +148,13 @@ class Bl_Slider_Cms_Manager {
 
         $data_model = Bl_Slider_Cms_Model::getInstance();
 
-        $public = new Bl_Slider_Cms_Manager_Public( $this->get_version(), $this->options, $data_model);
+        $upload_dir = wp_upload_dir();
+
+        $upload_dir = $upload_dir['basedir'] . "/bl-slider/";
+
+        $cache_manager = new Bl_Cache_Html_Manager( $upload_dir );
+
+        $public = new Bl_Slider_Cms_Manager_Public( $this->get_version(), $this->options, $data_model, $cache_manager);
 
         $this->loader->add_action( 'init', $public, 'create_shortcode_bl_slider' );
 

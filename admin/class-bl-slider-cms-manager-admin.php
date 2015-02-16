@@ -6,9 +6,11 @@ class Bl_Slider_Cms_Manager_Admin {
 
     private $data_model;
 
+    private $cache_manager;
+
     private $options;
 
-    function __construct( $version, $options, $data_model )
+    function __construct( $version, $options, $data_model, $cache_manager )
     {
 
         $this->version = $version;
@@ -16,6 +18,8 @@ class Bl_Slider_Cms_Manager_Admin {
         $this->options = $options;
 
         $this->data_model = $data_model;
+
+        $this->cache_manager = $cache_manager;
 
     }
 
@@ -106,7 +110,7 @@ class Bl_Slider_Cms_Manager_Admin {
 
     public function delete_cache() {
 
-        $delete_status = $this->data_model->delete_cache();
+        $delete_status = $this->cache_manager->delete_cache();
 
         ?>
 

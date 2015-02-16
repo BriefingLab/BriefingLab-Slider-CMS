@@ -6,15 +6,19 @@ class Bl_Slider_Cms_Manager_Public {
 
     private $data_model;
 
+    private $cache_manager;
+
     private $options;
 
-    function __construct( $version, $options, $data_model ) {
+    function __construct( $version, $options, $data_model, $cache_manager ) {
 
         $this->version = $version;
 
         $this->options = $options;
 
         $this->data_model = $data_model;
+
+        $this->cache_manager = $cache_manager;
 
     }
 
@@ -39,9 +43,13 @@ class Bl_Slider_Cms_Manager_Public {
 
         global $bl_sliders_printed;
 
-        $id_cache = $this->data_model->create_id_cache_html( serialize($atts) );
+        //$id_cache = $this->data_model->create_id_cache_html( serialize($atts) );
+        $id_cache = $this->cache_manager->create_id_cache_html( 'bl-slider-' . serialize($atts) );
 
-        $html_carousel = $this->data_model->has_cached_html( $id_cache );
+        $cache_manager =
+
+        //$html_carousel = $this->data_model->has_cached_html( $id_cache );
+        $html_carousel = $this->cache_manager->has_cached_html( $id_cache );
 
         if( false === $html_carousel ){
 
@@ -59,7 +67,8 @@ class Bl_Slider_Cms_Manager_Public {
 
             $html_carousel = ob_get_clean();
 
-            $this->data_model->cache_html( $html_carousel, $id_cache );
+            //$this->data_model->cache_html( $html_carousel, $id_cache );
+            $this->cache_manager->cache_html( $html_carousel, $id_cache );
 
         }
 
