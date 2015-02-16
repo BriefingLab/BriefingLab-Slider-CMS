@@ -80,7 +80,7 @@ class Bl_Slider_Cms_Manager_Admin {
             'show_ui' => true,
             'show_admin_column' => true,
             'query_var' => true,
-            'rewrite' => array( 'slug' => 'rubrics' ),
+            'rewrite' => array( 'slug' => 'sliders' ),
             'show_in_nav_menus' => true,
         );
 

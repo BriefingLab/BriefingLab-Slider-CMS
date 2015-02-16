@@ -46,8 +46,6 @@ class Bl_Slider_Cms_Manager_Public {
         //$id_cache = $this->data_model->create_id_cache_html( serialize($atts) );
         $id_cache = $this->cache_manager->create_id_cache_html( 'bl-slider-' . serialize($atts) );
 
-        $cache_manager =
-
         //$html_carousel = $this->data_model->has_cached_html( $id_cache );
         $html_carousel = $this->cache_manager->has_cached_html( $id_cache );
 
