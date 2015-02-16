@@ -100,7 +100,7 @@ class Bl_Slider_Cms_Manager_Admin {
 
     public function add_delete_cache_menu_link(){
 
-        add_submenu_page( 'edit.php?post_type=bl-slider', 'briefinlab slider CMS cache', 'Delete Cache', 'manage_options', 'delete-cache', array( $this, 'delete_cache' ) );
+        add_submenu_page( 'edit.php?post_type=bl-slider', __( 'Briefinglab Slider CMS Cache', 'bl-slider-cms' ), __( 'Delete Cache', 'bl-slider-cms' ), 'manage_options', 'delete-cache', array( $this, 'delete_cache' ) );
 
     }
 
@@ -112,18 +112,18 @@ class Bl_Slider_Cms_Manager_Admin {
 
         <div class="wrap">
 
-            <h2>Slider CMS Cache</h2>
+            <h2><?php _e( 'Slider CMS Cache', 'bl-slider-cms' ); ?>?></h2>
 
             <?php if( $delete_status ):?>
 
                 <div class="update-nag">
-                    Le cache sono state cancellate
+                    <?php _e( 'Cache have been deleted successfully', 'bl-slider-cms' ); ?>
                 </div>
 
             <?php else: ?>
 
                 <div class="update-nag">
-                    Non è stato possibile cancellare le cache. verificare i permessi di scrittura nella cartella delle cache.
+                    <?php _e( 'There was an error trying to delete the cache. Please check write permission for the cache folder', 'bl-slider-cms' ); ?>
                 </div>
 
             <?php endif; ?>
@@ -132,5 +132,12 @@ class Bl_Slider_Cms_Manager_Admin {
 
 <?php
     }
+
+    function load_textdomain() {
+
+        load_plugin_textdomain( 'bl-slider-cms', false, dirname( dirname( plugin_basename( __FILE__ ) ) )  . '/langs/' );
+
+    }
+
 
 }

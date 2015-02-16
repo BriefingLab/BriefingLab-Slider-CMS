@@ -120,6 +120,7 @@ class Bl_Slider_Cms_Manager {
 
         $admin = new Bl_Slider_Cms_Manager_Admin( $this->get_version(), $this->options, $data_model );
 
+        $this->loader->add_action( 'init', $admin, 'load_textdomain' );
         $this->loader->add_action( 'init', $admin, 'register_bl_slider_post_type' );
         $this->loader->add_action( 'admin_menu', $admin, 'add_delete_cache_menu_link' );
 
