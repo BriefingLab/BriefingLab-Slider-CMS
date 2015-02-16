@@ -98,4 +98,39 @@ class Bl_Slider_Cms_Manager_Admin {
 
     }
 
+    public function add_delete_cache_menu_link(){
+
+        add_submenu_page( 'edit.php?post_type=bl-slider', 'briefinlab slider CMS cache', 'Delete Cache', 'manage_options', 'delete-cache', array( $this, 'delete_cache' ) );
+
+    }
+
+    public function delete_cache() {
+
+        $delete_status = $this->data_model->delete_cache();
+
+        ?>
+
+        <div class="wrap">
+
+            <h2>Slider CMS Cache</h2>
+
+            <?php if( $delete_status ):?>
+
+                <div class="update-nag">
+                    Le cache sono state cancellate
+                </div>
+
+            <?php else: ?>
+
+                <div class="update-nag">
+                    Non è stato possibile cancellare le cache. verificare i permessi di scrittura nella cartella delle cache.
+                </div>
+
+            <?php endif; ?>
+
+        </div>
+
+<?php
+    }
+
 }

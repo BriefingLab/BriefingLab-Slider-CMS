@@ -78,4 +78,30 @@ class Bl_Slider_Cms_Model {
         return md5( 'bl-slider-' . $string );
 
     }
+
+    public function delete_cache() {
+
+        try{
+
+            $files = scandir( $this->cache_html_dir() );
+
+            array_shift($files); // remove .
+
+            array_shift($files); // remove ..
+
+            foreach( $files as $file){
+
+                unlink( $this->cache_html_dir() . $file);
+
+            }
+
+        } catch( Exception $e){
+
+            return false;
+
+        }
+
+        return true;
+
+    }
 } 
