@@ -1,5 +1,5 @@
-=== BriefingLab Slider CMS ===
-Contributors: BriefingLab, Luca Maroni
+=== Briefinglab Slider CMS ===
+Contributors: Briefinglab, Luca Maroni
 Donate link: http://briefinglab.com
 Tags: Wordpress, Slider, Manage Slide Content, Simply Slider CMS
 Requires at least: 3.9.1

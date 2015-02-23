@@ -1,4 +1,4 @@
-BriefingLab Slider CMS
+Briefinglab Slider CMS
 ===============
 
 OK there are a lot of plugins to manage your sliders. Plugins full of effects and very nice features, really impressive. But when you install them you have tons of features and tons of JS included that you really need? always?
