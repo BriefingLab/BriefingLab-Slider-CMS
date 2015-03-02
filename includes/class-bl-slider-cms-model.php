@@ -17,7 +17,7 @@ class Bl_Slider_Cms_Model {
 
         $args = array(
             'post_type' => 'bl-slider',
-            'limit' => $atts['limit']
+            'post_per_page' => $atts['limit']
         );
 
         if( ! empty ( $atts['categories'] ) ){
