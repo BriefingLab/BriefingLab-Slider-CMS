@@ -124,7 +124,7 @@ class Bl_Slider_Cms_Manager_Public {
 
         }
 
-        if($post){
+        if( $post ){
 
             $check_templates[] =  $custom_template_folder . '/' . substr( $template, 0, -4 ) . '-' . $post->post_name . '.php';
 
