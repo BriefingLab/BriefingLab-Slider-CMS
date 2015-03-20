@@ -19,7 +19,8 @@ class Bl_Slider_Cms_Model {
             'post_type' => 'bl-slider',
             'posts_per_page' => $atts['limit'],
             'orderby' => 'menu_order',
-            'order' => 'ASC'
+            'order' => 'ASC',
+            'suppress_filters' => 0
         );
 
         if( ! empty ( $atts['categories'] ) ){

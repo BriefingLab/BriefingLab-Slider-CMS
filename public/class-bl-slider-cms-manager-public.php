@@ -41,12 +41,10 @@ class Bl_Slider_Cms_Manager_Public {
 
     private function render_bl_slider( $bl_slides, $atts ){
 
-        global $bl_sliders_printed;
+        global $bl_sliders_printed, $locale;
 
-        //$id_cache = $this->data_model->create_id_cache_html( serialize($atts) );
-        $id_cache = $this->cache_manager->create_id_cache_html( 'bl-slider-' . serialize($atts) );
+        $id_cache = $this->cache_manager->create_id_cache_html( 'bl-slider-' . $locale . serialize($atts) );
 
-        //$html_carousel = $this->data_model->has_cached_html( $id_cache );
         $html_carousel = $this->cache_manager->has_cached_html( $id_cache );
 
         if( false === $html_carousel ){
@@ -65,7 +63,6 @@ class Bl_Slider_Cms_Manager_Public {
 
             $html_carousel = ob_get_clean();
 
-            //$this->data_model->cache_html( $html_carousel, $id_cache );
             $this->cache_manager->cache_html( $html_carousel, $id_cache );
 
         }
