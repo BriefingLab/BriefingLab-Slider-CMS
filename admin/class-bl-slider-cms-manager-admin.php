@@ -146,7 +146,6 @@ class Bl_Slider_Cms_Manager_Admin {
 
     function delete_cache_updating_post( $post_id, $post, $update ) {
 
-        // If this isn't a 'book' post, don't update it.
         if ( 'bl-slider' != $post->post_type ) {
             return;
         }
