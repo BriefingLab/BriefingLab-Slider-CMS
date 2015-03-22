@@ -131,6 +131,7 @@ class Bl_Slider_Cms_Manager {
         $this->loader->add_action( 'init', $admin, 'load_textdomain' );
         $this->loader->add_action( 'init', $admin, 'register_bl_slider_post_type' );
         $this->loader->add_action( 'admin_menu', $admin, 'add_delete_cache_menu_link' );
+        $this->loader->add_action( 'save_post', $admin, 'delete_cache_updating_post', 10, 3  );
 
 /**
          * enable theme to support featured images also on custom post type
