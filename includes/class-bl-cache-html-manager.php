@@ -17,7 +17,7 @@ if(!class_exists('Bl_Cache_Html_Manager')){
         {
 
             $file_path = $this->get_cache_html_dir() . $id . ".html";
-
+            if(!is_dir($this->get_cache_html_dir())) mkdir($this->get_cache_html_dir());
             if ($file = fopen($file_path, "w")) {
 
                 fwrite($file, $html);
